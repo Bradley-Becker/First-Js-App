@@ -1,3 +1,41 @@
-body { 
-    font-family: Arial, sans-serif; 
-}
+/* Basic reset for margins and padding */
+body, h1, p {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif; /* Setting a basic font for the body */
+    background-color: #f9f9f9; /* Light grey background for the page */
+    color: #333; /* Dark grey text color for readability */
+    line-height: 1.6; /* More readable line spacing */
+    padding: 20px; /* Padding around the content */
+  }
+  
+  header {
+    background-color: #0057b7; /* A nice blue for the header */
+    color: #fff; /* White text color */
+    padding: 10px 20px; /* Padding inside the header */
+    text-align: center; /* Centering the header text */
+    border-radius: 5px; /* Rounded corners for the header */
+  }
+  
+  h1 {
+    font-size: 24px; /* Larger font size for the header */
+  }
+  
+  p {
+    font-size: 16px; /* Standard font size for paragraph */
+    padding: 5px 10px; /* Padding inside each paragraph */
+    margin-bottom: 10px; /* Space below each paragraph */
+    background-color: #fff; /* White background for each Pokémon entry */
+    border-left: 5px solid #0057b7; /* Blue left border for style */
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1); /* Subtle shadow for 3D effect */
+  }
+  
+  /* Specific style for special Pokémon */
+  .special {
+    border-left-color: #ff6347; /* Tomato color for special Pokémon */
+    font-weight: bold; /* Make special Pokémon name bold */
+  }
+  
