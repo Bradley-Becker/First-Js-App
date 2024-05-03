@@ -13,9 +13,9 @@ let pokemonRepository = (function () {
 
     function add(pokemon) {
         if (typeof pokemon === 'object' &&
-            Object.keys(pokemon).includes('name') &&
-            Object.keys(pokemon).includes('height') &&
-            Object.keys(pokemon).includes('types') &&
+            'name' in pokemon &&
+            'height' in pokemon &&
+            'types' in pokemon &&
             Array.isArray(pokemon.types)) {
             pokemonList.push(pokemon);
         } else {
@@ -23,34 +23,30 @@ let pokemonRepository = (function () {
         }
     }
 
-    function findByName(name) {
-        return pokemonList.filter(pokemon => pokemon.name.toLowerCase() === name.toLowerCase());
+    function addListItem(pokemon) {
+        let container = document.querySelector('#pokemon-container');  // Ensure this container exists in your HTML
+        let button = document.createElement('button');
+        button.innerText = pokemon.name;
+        button.classList.add('pokemon-button');  // Ensure this class has styles in your CSS
+        container.appendChild(button);
+
+        button.addEventListener('click', function() {
+            showDetails(pokemon);
+        });
+    }
+
+    function showDetails(pokemon) {
+        console.log(pokemon);
     }
 
     return {
         getAll: getAll,
         add: add,
-        findByName: findByName
+        addListItem: addListItem
     };
 })();
 
-// Use the new repository to handle data operations
-const container = document.getElementById('pokemon-container');
-
-// Use getAll method to fetch the list and iterate over it
-pokemonRepository.getAll().forEach(pokemon => {
-    let displayText = `${pokemon.name} (height: ${pokemon.height})`;
-    const para = document.createElement('p');
-    para.textContent = displayText;
-
-    if (pokemon.height > 10) {
-        para.textContent += ' - Wow, that’s big!';
-        para.classList.add('special'); // Add 'special' class for CSS styling
-    }
-
-    container.appendChild(para);
+// Use the repository to create UI elements and bind events
+pokemonRepository.getAll().forEach(function(pokemon) {
+    pokemonRepository.addListItem(pokemon);
 });
-
-// Using findByName to demonstrate its functionality
-let foundPokemon = pokemonRepository.findByName('gyarados');
-console.log('Found Pokémon:', foundPokemon);  // Logs details about Gyarados

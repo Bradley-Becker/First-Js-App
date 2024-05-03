@@ -1,41 +1,43 @@
-/* Basic reset for margins and padding */
-body, h1, p {
-    margin: 0;
-    padding: 0;
+/* General body styles */
+body {
+  font-family: 'Arial', sans-serif; /* Standard font for readability */
+  background-color: #f0f0f0; /* Soft background color for less eye strain */
+  color: #333; /* Darker text for contrast and readability */
+  margin: 0;
+  padding: 20px;
+}
+
+/* Container for Pokémon buttons */
+#pokemon-container {
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap onto the next line */
+  justify-content: center; /* Centers buttons in the container */
+  gap: 10px; /* Adds space between buttons */
+  margin-top: 20px;
+}
+
+/* Styling for individual Pokémon buttons */
+.pokemon-button {
+  padding: 15px 30px; /* Adequate padding for touch targets */
+  background-color: #ffffff; /* White background for the buttons */
+  border: 2px solid #007BFF; /* Blue border for a pop of color */
+  border-radius: 10px; /* Rounded corners for a modern look */
+  cursor: pointer; /* Cursor changes to pointer to indicate it's clickable */
+  font-size: 16px; /* Larger font size for readability */
+  text-transform: capitalize; /* Capitalize Pokémon names */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow for 3D effect */
+  transition: transform 0.2s, box-shadow 0.2s; /* Smooth transitions for interactions */
+}
+
+/* Hover and active states for buttons */
+.pokemon-button:hover, .pokemon-button:active {
+  transform: translateY(-2px); /* Slightly raise the button on hover/active */
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2); /* Increase shadow for depth effect */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .pokemon-button {
+      padding: 12px 24px; /* Slightly smaller padding on smaller screens */
   }
-  
-  body {
-    font-family: 'Arial', sans-serif; /* Setting a basic font for the body */
-    background-color: #f9f9f9; /* Light grey background for the page */
-    color: #333; /* Dark grey text color for readability */
-    line-height: 1.6; /* More readable line spacing */
-    padding: 20px; /* Padding around the content */
-  }
-  
-  header {
-    background-color: #0057b7; /* A nice blue for the header */
-    color: #fff; /* White text color */
-    padding: 10px 20px; /* Padding inside the header */
-    text-align: center; /* Centering the header text */
-    border-radius: 5px; /* Rounded corners for the header */
-  }
-  
-  h1 {
-    font-size: 24px; /* Larger font size for the header */
-  }
-  
-  p {
-    font-size: 16px; /* Standard font size for paragraph */
-    padding: 5px 10px; /* Padding inside each paragraph */
-    margin-bottom: 10px; /* Space below each paragraph */
-    background-color: #fff; /* White background for each Pokémon entry */
-    border-left: 5px solid #0057b7; /* Blue left border for style */
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.1); /* Subtle shadow for 3D effect */
-  }
-  
-  /* Specific style for special Pokémon */
-  .special {
-    border-left-color: #ff6347; /* Tomato color for special Pokémon */
-    font-weight: bold; /* Make special Pokémon name bold */
-  }
-  
+}
